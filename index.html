@@ -55,19 +55,48 @@
         .nav-links a:hover { color: var(--primary); }
 
         /* --- Hero Section --- */
+        /* --- Hero Section --- */
         .hero {
-            min-height: 100vh; display: flex; flex-direction: column; 
-            justify-content: center; align-items: flex-start;
-            background: radial-gradient(circle at 80% 20%, rgba(112,0,255,0.15) 0%, #020617 100%);
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; /* FIX 1: Flex-start ko Center kar diya */
+            text-align: center;  /* FIX 2: Text ko beech mein kar diya */
+            background: radial-gradient(circle at 50% 20%, rgba(112,0,255,0.15) 0%, #020617 100%); /* FIX 3: Background glow ko thoda center kiya */
             position: relative;
             padding-top: 120px;
         }
         .hero h1 { font-family: 'Orbitron', sans-serif; font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1.1; margin-bottom: 15px; }
         .hero h1 span { color: var(--primary); }
-        .type-writer { font-size: clamp(1.2rem, 4vw, 1.8rem); color: var(--secondary); font-family: 'Orbitron', sans-serif; margin-bottom: 25px; min-height: 40px; }
-        .hero p { font-size: clamp(1rem, 2vw, 1.15rem); color: #94a3b8; max-width: 650px; margin-bottom: 40px; line-height: 1.7; }
         
-        .hero-btns { display: flex; gap: 20px; flex-wrap: wrap; width: 100%; }
+        /* Animation ko center rakhne ke liye */
+        .type-writer { 
+            font-size: clamp(1.2rem, 4vw, 1.8rem); 
+            color: var(--secondary); 
+            font-family: 'Orbitron', sans-serif; 
+            margin-bottom: 25px; 
+            min-height: 40px; 
+            text-align: center; /* FIX 4: Animation text center kiya */
+            display: inline-block;
+        }
+        
+        .hero p { 
+            font-size: clamp(1rem, 2vw, 1.15rem); 
+            color: #94a3b8; 
+            max-width: 650px; 
+            margin: 0 auto 40px auto; /* FIX 5: Paragraph container ko center kiya */
+            line-height: 1.7; 
+        }
+        
+        .hero-btns { 
+            display: flex; 
+            gap: 20px; 
+            flex-wrap: wrap; 
+            width: 100%; 
+            justify-content: center; /* FIX 6: Dono buttons ko center mein kiya */
+        }
+        
         .btn {
             padding: 16px 35px; border-radius: 6px; font-weight: 700;
             text-decoration: none; text-transform: uppercase; letter-spacing: 1.5px;
@@ -263,8 +292,9 @@
             <span class="section-tag" style="background: rgba(112,0,255,0.2); color: #fff; border: 1px solid var(--secondary);">MY ULTIMATE MISSION</span>
             <h2 class="section-title" style="margin-bottom: 25px; font-size: clamp(2.5rem, 6vw, 4rem);">[YOUR_AGENCY_NAME]</h2>
             <p style="font-size: clamp(1.1rem, 2vw, 1.25rem); line-height: 1.9; color: #cbd5e1; max-width: 900px; margin: 0 auto;">
-                <strong>[YOUR_AGENCY_NAME]</strong> is not just a freelance portfolio; it is the foundation of a high-end Software Development Agency. Operating out of Peshawar, my vision is to launch this agency with <strong>zero external investment</strong>. Relying purely on advanced JavaScript and Python coding skills, the mission is to digitize local businesses, automate complex retail/pharmacy POS systems, and deliver enterprise-grade web applications to global clients.
-            </p>
+                <p style="font-size: clamp(1.1rem, 2vw, 1.25rem); line-height: 1.9; color: #cbd5e1; max-width: 900px; margin: 0 auto;">
+    <strong>[YOUR_AGENCY_NAME]</strong> is not just a freelance portfolio; it is the foundation of a high-end Software Development Agency. Operating out of Peshawar, my vision is to launch this agency with <strong>zero external investment</strong>. Relying purely on advanced JavaScript and Python coding skills, the mission is to digitize local businesses, automate complex retail/pharmacy POS systems, and deliver enterprise-grade web applications to global clients.
+</p>
         </div>
     </section>
 
@@ -273,6 +303,26 @@
         <div style="text-align: center; margin-bottom: 60px;">
             <span class="section-tag">PRODUCTION READY</span>
             <h2 class="section-title">Case Studies</h2>
+        </div>
+
+        <!-- NEW PROJECT: DR. JEHANGIR CLINIC -->
+        <div class="project-card reveal" style="border-color: var(--primary); box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);">
+            <div class="project-header">
+                <h3>DR. JEHANGIR DENTAL CLINIC</h3>
+            </div>
+            <p class="project-desc">
+                A premium, ultra-responsive web application designed for a top-rated dental clinic in Peshawar. Features a modern Glassmorphism UI, advanced CSS Grid/Flexbox layouts, scroll animations, and a seamless WhatsApp appointment integration system built directly into the frontend.
+            </p>
+            <div class="tech-list" style="margin-bottom: 25px;">
+                <span class="highlight-tech">JavaScript</span>
+                <span class="highlight-tech">WhatsApp API</span>
+                <span class="highlight-tech">CSS Grid</span>
+                <span>HTML5</span>
+                <span>UI/UX Design</span>
+            </div>
+            <a href="https://drjehangir.vercel.app/" target="_blank" class="btn btn-main" style="padding: 12px 25px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 8px;">
+                <i class="ri-external-link-line" style="font-size: 1rem;"></i> View Live Project
+            </a>
         </div>
         
         <div class="project-card reveal">
@@ -354,7 +404,7 @@
             <div class="reveal">
                 <span class="section-tag">INITIALIZE CONNECTION</span>
                 <h2 class="section-title" style="margin-bottom: 20px;">Deploy Your <br>Next Project.</h2>
-                <p style="color: #94a3b8; font-size: 1.1rem; margin-bottom: 30px;">Ready to build a robust MERN application or need a Python-backed ERP system? Contact <strong>[YOUR_AGENCY_NAME]</strong>.</p>
+     <p style="color: #94a3b8; font-size: 1.1rem; margin-bottom: 30px;">Ready to build a robust MERN application or need a Python-backed ERP system? Contact <strong>[YOUR_AGENCY_NAME]</strong>.</p>
                 <div style="display: flex; flex-direction: column; gap: 20px;">
                     <div style="display: flex; align-items: center; gap: 15px;">
                         <i class="ri-mail-send-line" style="color: var(--primary); font-size: 1.8rem; background: rgba(0,242,255,0.1); padding: 10px; border-radius: 8px;"></i>
